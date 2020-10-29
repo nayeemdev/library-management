@@ -22,7 +22,7 @@ class CreateBookCopiesTable extends Migration
             $table->string('description')->nullable();
             $table->timestamp('published_date')->nullable();
             $table->boolean('is_available')->default(true);
-            $table->unsignedBigInteger('added_by')->default(true);
+            $table->unsignedBigInteger('added_by');
             $table->timestamps();
             $table->softDeletes();
 
