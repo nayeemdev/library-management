@@ -15,7 +15,16 @@ class CreateLoanRequestsTable extends Migration
     {
         Schema::create('loan_requests', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('status')->default('pending');
+            $table->unsignedBigInteger('status_changed_by');
+            $table->string('reason')->nullable();
+            $table->timestamp('status_change_date')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('status_changed_by')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
