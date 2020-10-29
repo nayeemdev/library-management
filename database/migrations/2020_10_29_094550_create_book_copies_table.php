@@ -20,7 +20,7 @@ class CreateBookCopiesTable extends Migration
             $table->string('edition')->nullable();
             $table->string('condition')->default('new');
             $table->string('description')->nullable();
-            $table->dateTime('published_date')->nullable();
+            $table->timestamp('published_date')->nullable();
             $table->boolean('is_available')->default(true);
             $table->unsignedBigInteger('added_by')->default(true);
             $table->timestamps();

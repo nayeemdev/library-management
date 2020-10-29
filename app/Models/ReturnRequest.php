@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class ReturnRequest extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
+
+    public function status_change_by()
+    {
+        return $this->belongsTo('App\Models\User', 'status_changed_by', 'id');
+    }
 }
