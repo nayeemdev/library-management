@@ -11,11 +11,11 @@ class BookCopy extends Model
 
     public function book()
     {
-        return $this->hasOne('App\Models\Book', 'book_id', 'id');
+        return $this->belongsTo('App\Models\Book', 'book_id', 'id');
     }
-    
-    public function user()
+
+    public function librarian()
     {
-        return $this->hasOne('App\Models\User', 'added_by', 'id');
+        return $this->belongsTo('App\Models\User', 'added_by', 'id');
     }
 }
