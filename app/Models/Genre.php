@@ -9,7 +9,7 @@ class Genre extends Model
 {
     use HasFactory;
 
-    public function book()
+    public function books()
     {
         return $this->belongsToMany('App\Models\Book');
     }
