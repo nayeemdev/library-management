@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Genre;
 use App\Models\Author;
 use App\Models\BookCopy;
+use App\Models\BookUser;
 use App\Models\LoanRequest;
 use App\Models\Publication;
 use Illuminate\Support\Str;
@@ -55,5 +56,22 @@ class DatabaseSeeder extends Seeder
         LoanRequest::factory()->count(10)->create();
         ReturnRequest::factory()->count(10)->create();
 
+        foreach (LoanRequest::get() as $key => $req) {
+            BookUser::create([
+                'user_id' => $req->user_id,
+                'book_copy_id' => rand(1, 30),
+                'status' => 'loan_requested',
+                'loan_request_id' => $req->id,
+            ]);
+        }
+
+        foreach (ReturnRequest::get() as $key => $req) {
+            BookUser::create([
+                'user_id' => $req->user_id,
+                'book_copy_id' => rand(1, 30),
+                'status' => 'return_requested',
+                'return_request_id' => $req->id,
+            ]);
+        }
     }
 }
