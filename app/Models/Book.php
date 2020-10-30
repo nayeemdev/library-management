@@ -11,12 +11,12 @@ class Book extends Model
 
     public function publication()
     {
-        return $this->hasOne('App\Models\Publication', 'publication_id', 'id');
+        return $this->hasOne('App\Models\Publication', 'id', 'publication_id');
     }
 
     public function copies()
     {
-        return $this->belongsToMany('App\Models\BookCopy');
+        return $this->hasMany('App\Models\BookCopy', 'book_id', 'id');
     }
 
     public function genre()
