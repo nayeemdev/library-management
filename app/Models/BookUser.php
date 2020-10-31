@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BookUser extends Pivot
 {
-    use HasFactory;
-    use SoftDeletes;
-
-    protected $table = 'book_user';
+    use HasFactory, SoftDeletes;
 
     public function user()
     {

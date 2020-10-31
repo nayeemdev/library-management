@@ -8,6 +8,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AuthorBook extends Pivot
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 }

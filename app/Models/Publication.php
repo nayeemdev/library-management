@@ -8,6 +8,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Publication extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 }

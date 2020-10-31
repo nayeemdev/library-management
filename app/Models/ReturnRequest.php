@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ReturnRequest extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     const STATUS_PENDING = 'pending';
     const STATUS_APPROVED = 'approved';

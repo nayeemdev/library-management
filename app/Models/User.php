@@ -10,8 +10,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
-    use SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes;
 
     const ROLE_USER = 'user';
     const ROLE_LIBRARIAN = 'librarian';

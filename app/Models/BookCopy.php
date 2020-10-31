@@ -8,11 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BookCopy extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
-    const BOOK_NEW = 'new';
-    const BOOK_OLD = 'old';
+    const CONDITION_NEW = 'new';
+    const CONDITION_OLD = 'old';
 
     public function book()
     {
