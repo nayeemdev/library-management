@@ -13,6 +13,8 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     use SoftDeletes;
 
+    const ROLE_USER = 'user';
+    const ROLE_LIBRARIAN = 'librarian';
     /**
      * The attributes that are mass assignable.
      *

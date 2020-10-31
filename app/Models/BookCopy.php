@@ -11,6 +11,9 @@ class BookCopy extends Model
     use HasFactory;
     use SoftDeletes;
 
+    const BOOK_NEW = 'new';
+    const BOOK_OLD = 'old';
+
     public function book()
     {
         return $this->belongsTo(Book::class, 'book_id', 'id');
