@@ -15,21 +15,21 @@ class BookUser extends Pivot
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     public function book_copy()
     {
-        return $this->belongsTo('App\Models\BookCopy');
+        return $this->belongsTo(BookCopy::class);
     }
 
     public function loan_request()
     {
-        return $this->belongsTo('App\Models\LoanRequest');
+        return $this->belongsTo(LoanRequest::class);
     }
 
     public function return_request()
     {
-        return $this->belongsTo('App\Models\ReturnRequest');
+        return $this->belongsTo(ReturnRequest::class);
     }
 }

@@ -13,11 +13,11 @@ class ReturnRequest extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function status_change_by()
+    public function statusChangedBy()
     {
-        return $this->belongsTo('App\Models\User', 'status_changed_by', 'id');
+        return $this->belongsTo(User::class, 'status_changed_by', 'id');
     }
 }

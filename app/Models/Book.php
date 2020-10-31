@@ -13,21 +13,21 @@ class Book extends Model
 
     public function publication()
     {
-        return $this->hasOne('App\Models\Publication', 'id', 'publication_id');
+        return $this->hasOne(Publication::class, 'id', 'publication_id');
     }
 
     public function copies()
     {
-        return $this->hasMany('App\Models\BookCopy', 'book_id', 'id');
+        return $this->hasMany(BookCopy::class, 'book_id', 'id');
     }
 
     public function genre()
     {
-        return $this->belongsToMany('App\Models\Genre');
+        return $this->belongsToMany(Genre::class)->using(BookGenre::class);
     }
 
     public function author()
     {
-        return $this->belongsToMany('App\Models\Author');
+        return $this->belongsToMany(Author::class)->using(AuthorBook::class);
     }
 }

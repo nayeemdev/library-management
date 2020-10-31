@@ -13,6 +13,6 @@ class Author extends Model
 
     public function books()
     {
-        return $this->belongsToMany('App\Models\Book')->using('App\Models\AuthorBook');
+        return $this->belongsToMany(Book::class)->using(AuthorBook::class);
     }
 }
