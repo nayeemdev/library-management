@@ -23,11 +23,10 @@ class GenreFactory extends Factory
     public function definition()
     {
         $name = $this->faker->unique()->name;
-        $slug = Str::slug($name);
 
         return [
             'name' => $name,
-            'slug' => $slug,
+            'slug' => Str::slug($name),
         ];
     }
 }

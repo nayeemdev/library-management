@@ -24,11 +24,10 @@ class BookFactory extends Factory
     public function definition()
     {
         $name = $this->faker->unique()->sentence;
-        $slug = Str::slug($name);
 
         return [
             'name' => $name,
-            'slug' => $slug,
+            'slug' => Str::slug($name),
             'image' => 'https://via.placeholder.com/150',
             'publication_id' => Publication::factory(),
             'isbn_number' => $this->faker->swiftBicNumber,
