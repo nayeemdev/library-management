@@ -3,16 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Genre extends Model
+class AuthorBook extends Pivot
 {
     use HasFactory;
     use SoftDeletes;
-
-    public function books()
-    {
-        return $this->belongsToMany('App\Models\Book');
-    }
 }
