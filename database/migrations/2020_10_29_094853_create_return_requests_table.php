@@ -37,7 +37,8 @@ class CreateReturnRequestsTable extends Migration
     public function down()
     {
         Schema::table('return_requests', function (Blueprint $table) {
-            $table->dropForeign(['user_id', 'status_changed_by']);
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['status_changed_by']);
         });
 
         Schema::dropIfExists('return_requests');
