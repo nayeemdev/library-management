@@ -17,7 +17,7 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('publication_id');
             $table->string('isbn_number')->nullable();
             $table->integer('total_copies')->default(0);
@@ -35,6 +35,10 @@ class CreateBooksTable extends Migration
      */
     public function down()
     {
+        Schema::table('books', function (Blueprint $table) {
+            $table->dropForeign(['publication_id']);
+        });
+
         Schema::dropIfExists('books');
     }
 }
