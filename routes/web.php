@@ -14,18 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::group(['middleware' => 'auth'], function () {
+Route::middleware(['middleware' => 'auth'])->group(function () {
     Route::get('/', function () {
         return view('welcome');
-    });
-});
+    })->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    Route::get('/profile', function () {
+        return view('profile');
+    })->name('profile');
+
+    Route::post('profile', 'ProfileController@update')->name('profile.update');
+});
 
 require __DIR__.'/auth.php';
