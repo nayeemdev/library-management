@@ -24,6 +24,17 @@ Route::middleware(['middleware' => 'auth'])->group(function () {
     })->name('profile');
 
     Route::post('profile', 'ProfileController@update')->name('profile.update');
+
+    //Librarian Route
+    Route::group(['prefix' => 'librarian', 'middleware' => 'librarian'], function () {
+        Route::get('user', 'Librarian\UserController@index')->name('users.index');
+        Route::get('user/change/{status}/{id}', 'Librarian\UserController@changeStatus')->name('users.changeStatus');
+    });
+
+    //Users Route
+    Route::group(['prefix' => 'user', 'middleware' => 'user'], function () {
+
+    });
 });
 
 require __DIR__.'/auth.php';
