@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::where('role', User::ROLE_USER)->paginate('15');
+        $users = User::where('role', User::ROLE_USER)->paginate(User::PAGINATE_COUNT);
         return view('librarian.users.index', compact('users'));
     }
 

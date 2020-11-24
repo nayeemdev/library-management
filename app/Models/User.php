@@ -14,6 +14,8 @@ class User extends Authenticatable
 
     const ROLE_USER = 'user';
     const ROLE_LIBRARIAN = 'librarian';
+    const PAGINATE_COUNT = 15;
+
     /**
      * The attributes that are mass assignable.
      *
