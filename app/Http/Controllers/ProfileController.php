@@ -11,7 +11,7 @@ class ProfileController extends Controller
 {
     public function update(UserUpdateRequest $request)
     {
-        User::where('id',auth()->user()->id)->update($request->requestData());
+        User::where('id', auth()->user()->id)->update($request->requestData());
 
         return back()->with(['message'=> 'Profile Updated', 'type'=>'success']);
     }
