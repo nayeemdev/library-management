@@ -28,7 +28,7 @@ Route::middleware(['middleware' => 'auth'])->group(function () {
 
     //Librarian Route
     Route::group(['prefix' => 'librarian', 'middleware' => 'librarian'], function () {
-        Route::get('user', [UserController::class, 'index'])->name('users.index');
+        Route::get('users', [UserController::class, 'index'])->name('users.index');
         Route::post('user/change', [UserController::class, 'changeStatus'])->name('users.changeStatus');
     });
 
