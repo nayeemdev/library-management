@@ -58,7 +58,12 @@
                                                         <i class="ti-settings menu-icon"></i>
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="{{ route('users.changeStatus',['status' => $user->is_banned, 'id' => $user->id]) }}" onclick="if (! confirm('Are You Sure to Change Status?')) { return false; }">{{ $user->is_banned == 0 ? 'Ban ' : 'Unban ' }} User</a>
+                                                        <form action="{{ route('users.changeStatus') }}" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                                            <input type="hidden" name="status" value="{{ $user->is_banned == 1 ? '0' : '1' }}">
+                                                            <button type="submit" class="dropdown-item">{{ $user->is_banned == 0 ? 'Ban ' : 'Unban ' }} User</button>
+                                                        </form>
                                                         <a class="dropdown-item" href="#" >Edit</a>
                                                         <a class="dropdown-item" href="#" >Delete</a>
                                                     </div>
