@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Librarian\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['middleware' => 'auth'])->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('dashboard');
+
+    Route::get('/profile', function () {
+        return view('profile');
+    })->name('profile');
+
+    Route::post('profile', [ProfileController::class, 'update'])->name('profile.update');
+
+    //Librarian Route
+    Route::group(['prefix' => 'librarian', 'middleware' => 'librarian'], function () {
+        Route::get('users', [UserController::class, 'index'])->name('users.index');
+        Route::post('user/change', [UserController::class, 'changeStatus'])->name('users.changeStatus');
+    });
+
+    //Users Route
+    Route::group(['prefix' => 'user', 'middleware' => 'user'], function () {
+        //
+    });
 });
+
+require __DIR__.'/auth.php';
